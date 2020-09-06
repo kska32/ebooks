@@ -9,7 +9,7 @@
   
   如有其他需要可以邮件 kska32@gmail.com<br>
   
-  <a href='https://your-ebook.xyz' target='blank'>搜索下载地址在这里</a>
+  <a href='https://your-ebook.xyz' target='blank'>下载地址: HTTPS://YOUR-EBOOK.XYZ</a>
 </p>
 
 
