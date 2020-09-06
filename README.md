@@ -7,7 +7,7 @@
  
   所有电子书均来自国际互联网，这次数据库里只收录了其中一部分目录名称，其余部分将持续更新。<br>
   
-  如有其他需要可以邮件 kska32@gmail.com<br>
+  如有其他需要可以邮件<b>kska32@gmail.com</b><br>
   
   <a href='https://your-ebook.xyz' target='_blank'><strong>DOWNLOAD: HTTPS://YOUR-EBOOK.XYZ</strong></a>
 </p>
