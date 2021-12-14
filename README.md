@@ -9,7 +9,7 @@
   
   如有其他需要可以邮件<b>kska32@gmail.com</b><br>
   
-  <a href='https://your-ebook.xyz' target='_blank'><strong>DOWNLOAD: HTTPS://YOUR-EBOOK.XYZ</strong></a>
+  <a href='https://jade.gleeze.com' target='_blank'><strong>DOWNLOAD: HTTPS://jade.gleeze.com</strong></a>
 </p>
 
 
