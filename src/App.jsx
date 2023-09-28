@@ -76,13 +76,6 @@ const BookList = styled.div`
       box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.25);
     }
 
-    >button{
-      background-color: transparent;
-      border: none;
-      outline: none;
-      cursor: pointer;
-    }
-
 
     animation: ${animation} var(--duration-ms);
   }
@@ -130,20 +123,6 @@ function App() {
   }, []);
 
 
-  const downloadFile = useCallback((url)=>{
-      fetch(url,{
-          mode: 'no-cors',
-          redirect: 'follow',
-          cache: 'force-cache'
-      })
-      .then((res)=>res.blob())
-      .then((blob)=>{
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = "file.pdf";
-          a.click();
-      });
-  }, []);
 
   return <AppWrapper>
       <InputBox>
@@ -160,7 +139,7 @@ function App() {
           booklist.map((v,i)=>{
             return <div className='item' key={v.id} style={{'--duration-ms':`${i*120}ms`}}>
              <span>{v.name}</span>
-             <button onClick={()=>downloadFile(v.webContentLink)}><Icon name='download' color='grey' /></button>
+             <a href={v.webContentLink} download ><Icon name='download' color='grey' /></a>
             </div>
           })
         }
