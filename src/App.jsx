@@ -12,8 +12,14 @@ const AppWrapper = styled.div`
   margin: auto;
   display: flex;
   flex-flow: column nowrap;
-
   transition: all 1s;
+
+  h2{
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic !important;
+  }
+
 `;
 
 
@@ -22,21 +28,17 @@ const InputBox = styled.div`
   display: flex;
   flex-flow: row nowrap;
   gap: 4px;
+  font-size: 16px;
 
   >div.input{
     flex: 1;
   }
-`;
 
-
-const animation = keyframes`
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
+  >button{
+    width: 50px;
   }
 `;
+
 
 const BookList = styled.div`
   position: relative;
@@ -50,8 +52,6 @@ const BookList = styled.div`
     margin-top: 20px;
   }
 
-
-
   >div.item{
     position: relative;
 
@@ -61,10 +61,11 @@ const BookList = styled.div`
     border-radius: 5px;
     padding: 12px 14px;
 
+    font-size: 16px;
+    font-weight: 700;
 
     word-break: break-word;
     background-color: rgba(0,0,0,0.068);
-
     gap: 10px;
 
     >span{
@@ -75,9 +76,32 @@ const BookList = styled.div`
       background-color: rgba(255,255,0,0.08);
       box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.25);
     }
+  }
+`;
 
+const Loading = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 
-    animation: ${animation} var(--duration-ms);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.18s;
+
+  &.loading{
+    opacity: 1;
   }
 `;
 
@@ -88,8 +112,8 @@ function App() {
   const [isReady, setReady] = useState(false);
   const [booklist, setBooklist] = useState([]);
   const [value, setValue] = useState('');
-
   const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     const zip = new JSZip();
@@ -123,27 +147,31 @@ function App() {
   }, []);
 
 
-
   return <AppWrapper>
+      <h2>目录搜索</h2>
+      <br />
       <InputBox>
         <Input fluid placeholder='Search...' 
             size='large'
             value={value} 
             onChange={(e)=>setValue(e.target.value)} 
             onKeyUp={e=>e.keyCode===13 && search(value)} 
+            icon='search'
         />
-        <Button size='large' icon='search' basic onClick={()=>search(value)} floated='right'/>
       </InputBox>
       <BookList className={booklist.length>0 ? 'hasMarginTop' : ''}>
         {
           booklist.map((v,i)=>{
-            return <div className='item' key={v.id} style={{'--duration-ms':`${i*120}ms`}}>
+            return <div className='item' key={v.id} >
              <span>{v.name}</span>
-             <a href={v.webViewLink} target='blank'><Icon name='download' color='grey' /></a>
+             <a href={v.webViewLink} target='_blank'><Icon name='download' color='grey' /></a>
             </div>
           })
         }
       </BookList>
+      <Loading className={loading ? 'loading' : ''}>
+        Loading...
+      </Loading>
   </AppWrapper>
   
 }

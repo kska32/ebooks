@@ -29,5 +29,5 @@ body {
   min-height: 100vh;
   position: relative;
   display: flex;
-  
+  background-color: #eee;
 }

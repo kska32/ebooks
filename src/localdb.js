@@ -100,7 +100,10 @@ function createStore(collection, keyNames){
                 "search": (keyword) => {
                         return db[collection]
                                 .orderBy('name')
-                                .filter((list) => new RegExp(`${keyword}`,'gi').test(list.name))
+                                .filter((list) => {
+                                        const escape = (txt) => txt.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+                                        return new RegExp(escape(`${keyword}`),'gi').test(list.name)
+                                })
                                 .toArray();
                 }
         }
