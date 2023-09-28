@@ -25,7 +25,7 @@ dist-ssr
 package.json
 package-lock.json
 vite.config.json
-src
+src/*
 public
 build
 .eslintrc.cjs
