@@ -10,5 +10,6 @@ export default defineConfig({
   plugins: [react(), mkcert()],
   build: {
     outDir: 'docs'
-  }
+  },
+  base: "./"
 })
