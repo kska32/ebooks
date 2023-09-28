@@ -10,7 +10,7 @@
   如有其他需要可以邮件<b>kska32@gmail.com</b><br>
   
   <a href='https://drive.google.com/drive/folders/1cwmlsCwnl875IeuM0J9CTH0Y9naZQzyb' target='_blank'><strong>通过 Google Drive 点击下载</strong></a><br/>
-  <a href='https://kska32.github.io/ebooks/' target='_blank'><strong>电子书目录,搜索下载</strong></a>
+  <a href='https://kska32.github.io/ebooks/' target='_blank'><strong>电子书目录 - 搜索下载</strong></a>
 </p>
 
 
