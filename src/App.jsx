@@ -70,6 +70,19 @@ const BookList = styled.div`
 
     >span{
       text-align: left;
+
+      >span{
+        &.size{
+          position: relative;
+          background-color: rgba(0,0,0,0.3);
+          color: #fff;
+          border-radius: 5px;
+          font-size: 12px;
+          padding: 2px 5px;
+          margin-left: 10px;
+          user-select: none;
+        }
+      }
     }
 
     &:hover{
@@ -138,8 +151,10 @@ function App() {
 
 
   const search = useCallback((v)=>{
+    const keyword = v?.trim()??'';
+    if(keyword === '') return;
     setLoading(true);
-    bookListDB.search(v)
+    bookListDB.search(keyword)
       .then(setBooklist)
       .catch(console.error).finally(()=>{
         setLoading(false);
@@ -148,10 +163,8 @@ function App() {
 
 
   return <AppWrapper>
-      <h2>目录搜索</h2>
-      <br />
       <InputBox>
-        <Input fluid placeholder='Search...' 
+        <Input fluid placeholder='目录搜索...' 
             size='large'
             value={value} 
             onChange={(e)=>setValue(e.target.value)} 
@@ -163,8 +176,11 @@ function App() {
         {
           booklist.map((v,i)=>{
             return <div className='item' key={v.id} >
-             <span>{v.name}</span>
-             <a href={v.webViewLink} target='_blank'><Icon name='download' color='grey' /></a>
+              <span>
+                  <span className='name'>{v.name}</span>
+                  <span className='size'>{Number(v.size / 1024**2).toFixed(2)} MB</span>
+              </span>
+              <a href={v.webViewLink} target='_blank'><Icon name='download' color='grey' /></a>
             </div>
           })
         }
