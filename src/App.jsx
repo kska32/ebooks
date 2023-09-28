@@ -139,7 +139,7 @@ function App() {
           booklist.map((v,i)=>{
             return <div className='item' key={v.id} style={{'--duration-ms':`${i*120}ms`}}>
              <span>{v.name}</span>
-             <a href={v.webContentLink} download ><Icon name='download' color='grey' /></a>
+             <a href={v.webViewLink} target='blank'><Icon name='download' color='grey' /></a>
             </div>
           })
         }
