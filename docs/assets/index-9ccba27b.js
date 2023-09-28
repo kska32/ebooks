@@ -125,6 +125,19 @@ From previous: `);return this._state!==null&&(this._stack=e),e}finally{Gc=!1}}},
 
     >span{
       text-align: left;
+
+      >span{
+        &.size{
+          position: relative;
+          background-color: rgba(0,0,0,0.3);
+          color: #fff;
+          border-radius: 5px;
+          font-size: 12px;
+          padding: 2px 5px;
+          margin-left: 10px;
+          user-select: none;
+        }
+      }
     }
 
     &:hover{
@@ -156,4 +169,4 @@ From previous: `);return this._state!==null&&(this._stack=e),e}finally{Gc=!1}}},
   &.loading{
     opacity: 1;
   }
-`;function mC(){me.useState(0);const[e,t]=me.useState(!1),[n,r]=me.useState([]),[i,o]=me.useState(""),[a,s]=me.useState(!1);me.useEffect(()=>{const u=new Kw;fetch("/ebook-list.json.zip").then(p=>p.arrayBuffer()).then(p=>{const h=+localStorage.getItem("size");return $u.count().then(d=>h!==+p.byteLength||d===0?(localStorage.setItem("size",p.byteLength),u.loadAsync(p).then(m=>m.file("ebook-list.json").async("string").then(y=>{const g=JSON.parse(y);return $u.putAll(g).then(_=>!0)}))):!0)}).then(t).catch(p=>{console.error("Error:",p)})},[]);const l=me.useCallback(u=>{s(!0),$u.search(u).then(r).catch(console.error).finally(()=>{s(!1)})},[]);return $t.jsxs(fC,{children:[$t.jsx("h2",{children:"目录搜索"}),$t.jsx("br",{}),$t.jsx(dC,{children:$t.jsx(cC,{fluid:!0,placeholder:"Search...",size:"large",value:i,onChange:u=>o(u.target.value),onKeyUp:u=>u.keyCode===13&&l(i),icon:"search"})}),$t.jsx(hC,{className:n.length>0?"hasMarginTop":"",children:n.map((u,p)=>$t.jsxs("div",{className:"item",children:[$t.jsx("span",{children:u.name}),$t.jsx("a",{href:u.webViewLink,target:"_blank",children:$t.jsx(Bi,{name:"download",color:"grey"})})]},u.id))}),$t.jsx(pC,{className:a?"loading":"",children:"Loading..."})]})}Zu.createRoot(document.getElementById("root")).render($t.jsx(mC,{}))});export default gC();
+`;function mC(){me.useState(0);const[e,t]=me.useState(!1),[n,r]=me.useState([]),[i,o]=me.useState(""),[a,s]=me.useState(!1);me.useEffect(()=>{const u=new Kw;fetch("/ebook-list.json.zip").then(p=>p.arrayBuffer()).then(p=>{const h=+localStorage.getItem("size");return $u.count().then(d=>h!==+p.byteLength||d===0?(localStorage.setItem("size",p.byteLength),u.loadAsync(p).then(m=>m.file("ebook-list.json").async("string").then(y=>{const g=JSON.parse(y);return $u.putAll(g).then(_=>!0)}))):!0)}).then(t).catch(p=>{console.error("Error:",p)})},[]);const l=me.useCallback(u=>{const p=(u==null?void 0:u.trim())??"";p!==""&&(s(!0),$u.search(p).then(r).catch(console.error).finally(()=>{s(!1)}))},[]);return $t.jsxs(fC,{children:[$t.jsx(dC,{children:$t.jsx(cC,{fluid:!0,placeholder:"目录搜索...",size:"large",value:i,onChange:u=>o(u.target.value),onKeyUp:u=>u.keyCode===13&&l(i),icon:"search"})}),$t.jsx(hC,{className:n.length>0?"hasMarginTop":"",children:n.map((u,p)=>$t.jsxs("div",{className:"item",children:[$t.jsxs("span",{children:[$t.jsx("span",{className:"name",children:u.name}),$t.jsxs("span",{className:"size",children:[Number(u.size/1024**2).toFixed(2)," MB"]})]}),$t.jsx("a",{href:u.webViewLink,target:"_blank",children:$t.jsx(Bi,{name:"download",color:"grey"})})]},u.id))}),$t.jsx(pC,{className:a?"loading":"",children:"Loading..."})]})}Zu.createRoot(document.getElementById("root")).render($t.jsx(mC,{}))});export default gC();

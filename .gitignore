@@ -27,4 +27,5 @@ package-lock.json
 vite.config.json
 src
 public
+build
 .eslintrc.cjs
